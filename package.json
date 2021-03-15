@@ -1,0 +1,36 @@
+{
+  "name": "ecommerce-server",
+  "version": "1.0.0",
+  "description": "API server untuk e-commerce website",
+  "main": "index.js",
+  "scripts": {
+    "db:create:test": "sequelize db:create --env test",
+    "db:migrate:test": "sequelize db:migrate --env test",
+    "db:seed:all:test": "sequelize db:seed:all --env test",
+    "db:create:dev": "sequelize db:create --env development",
+    "db:migrate:dev": "sequelize db:migrate --env development",
+    "db:seed:all:dev": "sequelize db:seed:all --env development",
+    "test": "npx jest --env test",
+    "dev": "cross-env NODE_ENV=development nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dennysihol/ecommerce-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dennysihol/ecommerce-server/issues"
+  },
+  "homepage": "https://github.com/dennysihol/ecommerce-server#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cross-env": "^7.0.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.5.1",
+    "sequelize": "^6.5.1"
+  }
+}
