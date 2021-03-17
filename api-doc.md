@@ -7,7 +7,6 @@ List of available endpoints:
 - `GET /products`
 - `GET /products/:id`
 - `PUT /products/:id`
-- `PATCH /products/:id`
 - `DELETE /products/:id`
 
 
@@ -24,7 +23,7 @@ Request:
 }
 ```
 
-Response:
+Success Response:
 
 - status: 200
 - body:
@@ -36,6 +35,18 @@ Response:
     "email": "string",
     "role": "string",
     "access_token": "jwt string"
+}
+```
+
+Error Response:
+
+- status: 401
+- body:
+  ​
+
+```json
+{
+    "message" : "Invalid Email or Password"
 }
 ```
 
@@ -78,6 +89,17 @@ Response:
         "createdAt": "date"
     },
     "message": "New Product Added"
+}
+```
+
+Response:
+
+- status: 401
+- body:
+
+```json
+{
+   "message": "Not Authorized"
 }
 ```
 
@@ -309,48 +331,6 @@ Response:
         "updatedAt": "date",
         "createdAt": "date"
         },
-}
-```
-
-### PUT /banners/:id
-
-description: 
-  edit banner by id
-
-Request:
-
-- headers: access_token (string)
-- params: 
-  - jobId: "integer" required
-- data:
-
-```json
-{
-    "title": "string",
-    "category": "string",
-    "image": "string",
-    "status": "string",
-}
-```
-
-
-Response:
-
-- status: 201
-- body:
-
-```json
-{
-  "banner":  {
-        "id": "integer",
-        "title": "string",
-        "category": "string",
-        "image": "string",
-        "status": "string",
-        "updatedAt": "date",
-        "createdAt": "date"
-    },
-    "message": "Edit banner Success"
 }
 ```
 

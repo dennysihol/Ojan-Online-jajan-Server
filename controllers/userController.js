@@ -19,7 +19,7 @@ class UserController {
                     if(compared) {
                         let payload = {
                             email: user.email,
-                            roel: user.role
+                            role: user.role
                         }
 
                         res.status(200).json({...payload, access_token: generateToken(payload)})

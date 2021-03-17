@@ -3,16 +3,17 @@ const {verifyToken} = require('./jwt')
 
 const authenticate = (req, res , next) => {
 
-    let {email, role} = verifyToken(req.headers.access_token)    
+    let {email} = verifyToken(req.headers.access_token)    
+
     User.findOne(
         {
             where: {
-                email, role
+                email
             }
         }
     )
         .then((user) => {
-            req.user = {email: user.email, role: user.role}
+            req.user = {email: user.email}
             next()
 
         })
@@ -34,7 +35,14 @@ const authorize = (req, res, next) => {
         }
     )
         .then((user) => {
-            next()
+            if(user) {
+                next()
+            } else {
+                next({
+                    code: 401,
+                    message: "Unauthorized"
+                })
+            }
         })
         .catch((err) => {
             next({

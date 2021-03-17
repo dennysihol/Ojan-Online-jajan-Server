@@ -10,8 +10,8 @@
     "db:create:dev": "sequelize db:create --env development",
     "db:migrate:dev": "sequelize db:migrate --env development",
     "db:seed:all:dev": "sequelize db:seed:all --env development",
-    "test": "npx jest --env test",
-    "dev": "cross-env NODE_ENV=development nodemon app"
+    "test": "npx jest --detectOpenHandles --forceExit",
+    "dev": "npx nodemon bin/http.js"
   },
   "repository": {
     "type": "git",
@@ -32,5 +32,9 @@
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.5.1",
     "sequelize": "^6.5.1"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "supertest": "^6.1.3"
   }
 }
