@@ -11,7 +11,7 @@
     "db:migrate:dev": "sequelize db:migrate --env development",
     "db:seed:all:dev": "sequelize db:seed:all --env development",
     "test": "npx jest --detectOpenHandles --forceExit",
-    "dev": "npx nodemon bin/http.js"
+    "dev": "cross-env NODE_ENV=development npx nodemon bin/http.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/dennysihol/ecommerce-server#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

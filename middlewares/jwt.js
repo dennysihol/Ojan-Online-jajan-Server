@@ -5,7 +5,7 @@ const generateToken = (payload) => {
 }
 
 const verifyToken = (token) => {
-    return jwt.verify(token. process.env.SECRET)
+    return jwt.verify(token, process.env.SECRET)
 }
 
 module.exports = {generateToken, verifyToken}

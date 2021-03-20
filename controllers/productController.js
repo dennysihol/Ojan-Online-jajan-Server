@@ -1,4 +1,4 @@
-const {Product} = require('../models/index')
+const { Product } = require('../models/index')
 
 class ProductController {
     
@@ -25,7 +25,7 @@ class ProductController {
     }
 
     static showProducts(req, res, next) {
-        
+        console.log('jalan');
         Product.findAll()
             .then((product) => {
                 res.status(200).json({product})

@@ -24,14 +24,14 @@ class UserController {
 
                         res.status(200).json({...payload, access_token: generateToken(payload)})
                     } else {
-                        res.status(401).json({message: 'Email or Password Invalid'})
+                        res.status(401).json({message: 'Invalid Email or Password'})
                     }
                 } else {
-                    res.status(401).json({message: 'Email or Password Invalid'})
+                    res.status(401).json({message: 'Invalid Email or Password'})
                 }
             })
             .catch((err) => {
-                res.status(401).json({message: 'Email or Password Invalid'})
+                res.status(401).json({message: 'Invalid Email or Password'})
             })
 
     }
