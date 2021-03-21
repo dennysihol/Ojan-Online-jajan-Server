@@ -4,6 +4,7 @@
   "description": "API server untuk e-commerce website",
   "main": "index.js",
   "scripts": {
+    "start" : "node bin/http.js",
     "db:create:test": "sequelize db:create --env test",
     "db:migrate:test": "sequelize db:migrate --env test",
     "db:seed:all:test": "sequelize db:seed:all --env test",
