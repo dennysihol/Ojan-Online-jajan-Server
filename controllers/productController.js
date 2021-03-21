@@ -25,7 +25,6 @@ class ProductController {
     }
 
     static showProducts(req, res, next) {
-        console.log('jalan');
         Product.findAll()
             .then((product) => {
                 res.status(200).json({product})
@@ -59,6 +58,7 @@ class ProductController {
 
     static putProduct(req, res, next) {
         const id = req.params.id
+        const body = req.body
         const editedProduct = {
             name: body.name,
             category: body.category,
