@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 
-const hash = require('../middlewares/password')
+const {hash} = require('../middlewares/password')
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.hasMany(models.Cart, {foreignKey: 'UserId'})
     }
   };
   User.init({
@@ -46,6 +47,11 @@ module.exports = (sequelize, DataTypes) => {
   User.addHook('beforeCreate', (user, option) => {
     user.password = hash(user.password)
   })
+
+  User.addHook('beforeCreate', (user, option) => {
+    user.role = 'user'
+  })
+
 
   return User;
 };

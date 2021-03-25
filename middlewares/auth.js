@@ -1,9 +1,9 @@
-const{User, Product} = require('../models/index')
+const{User, Product, Cart} = require('../models/index')
 const {verifyToken} = require('./jwt')
 
 const authenticate = (req, res , next) => {
 
-    let {email} = verifyToken(req.headers.access_token)    
+    let {id, email} = verifyToken(req.headers.access_token)    
 
     User.findOne(
         {
@@ -13,7 +13,7 @@ const authenticate = (req, res , next) => {
         }
     )
         .then((user) => {
-            req.user = {email: user.email}
+            req.user = {id: user.id, email: user.email}
             next()
 
         })
@@ -25,7 +25,7 @@ const authenticate = (req, res , next) => {
         })
 }
 
-const authorize = (req, res, next) => {
+const authorizeAdmin = (req, res, next) => {
 
     User.findOne(
         {
@@ -53,4 +53,32 @@ const authorize = (req, res, next) => {
 
 }
 
-module.exports = {authenticate, authorize}
+const authorizeUser = (req, res, next) => {
+    let id = req.user.id
+    Cart.findAll(
+        {
+            where: {
+                UserId: +id
+            }
+        }
+    )
+        .then((cart) => {
+            if(cart) {
+                next()
+            } else {
+                next({
+                    code: 401,
+                    message: "Unauthorized"
+                })
+            }
+        })
+        .catch((err) => {
+            next({
+                code: 401,
+                message: "Unauthorized"
+            })
+        })    
+
+}
+
+module.exports = {authenticate, authorizeAdmin, authorizeUser}

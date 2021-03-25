@@ -1,6 +1,6 @@
 let env = process.env.NODE_ENV
 
-if(env == "development" || env == "test") {
+if(env !== "production") {
   require("dotenv").config()
 }
 

@@ -1,4 +1,4 @@
-const { Product } = require('../models/index')
+const { Product, Cart, User } = require('../models/index')
 
 class ProductController {
     
@@ -109,6 +109,25 @@ class ProductController {
                 next(err)
             })
     }
+
+    static addToCart (req, res, next) {
+        const id = req.params.id
+        const newCart = {
+            UserId: req.user.id,
+            ProductId: id,
+            total: req.body.total
+        }
+
+        Cart.create(newCart)
+            .then((data) => {
+                res.status(201).json({message: 'Product added to cart'})
+            })
+            .catch((err) => {
+                next(err)
+            })
+    }
+
+
 
 }
 
