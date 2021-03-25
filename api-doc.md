@@ -356,3 +356,173 @@ Response:
   "message": "Banner has been deleted"
 }
 ```
+
+### POST /carts/:ProductId
+
+description: 
+  add product to cart
+
+Request:
+
+- headers: access_token (string)
+
+- data:
+
+```json
+{
+    "ProductId": "integer",
+    "UserId": "integer",
+    "total": "integer",
+}
+```
+
+Response:
+
+- status: 201
+- body:
+
+```json
+{
+    "ProductId": "integer",
+    "UserId": "integer",
+    "total": "integer",
+    "updatedAt": "date",
+    "createdAt": "date"
+}
+```
+
+Response Fail:
+
+- status: 400
+- body:
+
+```json
+{
+   "message": "Bad Request"
+}
+```
+
+### GET /carts/:UserId
+
+description: 
+  show all cart of user
+
+Request:
+
+- headers: access_token (string)
+
+Response:
+
+- status: 200
+- body:
+
+```json
+{
+    "id": "integer",
+    "UserId": "integer",
+    "ProductId": "integer",
+    "total": "integer",
+    "createdAt": "date",
+    "updatedAt": "date",
+    "Product": {
+        "id": "integer",
+        "name": "string",
+        "category": "string",
+        "stock": "integer",
+        "price": "integer",
+        "image": "string",
+        "createdAt": "date",
+        "updatedAt": "date"
+    }
+}
+```
+
+Response Fail:
+
+- status: 401
+- body:
+
+```json
+{
+   "message": "Unauthorized"
+}
+```
+
+### PATCH /carts/:id
+
+description: 
+  update total in cart
+
+Request:
+
+- headers: access_token (string)
+
+- data:
+
+```json
+{
+    "total": "integer",
+}
+```
+
+Response:
+
+- status: 201
+- body:
+
+```json
+{
+    "cart": [
+        "1"
+    ],
+    "message": "Update success"
+}
+```
+
+Response Fail:
+
+- status: 400
+- body:
+
+```json
+{
+   "cart": [
+        "0"
+    ],
+    "message": "Update failed"
+}
+```
+
+### DELETE /carts/:id
+
+description: 
+  delete cart by id
+
+Request:
+
+- headers: access_token (string)
+
+Response:
+
+- status: 200
+- body:
+
+```json
+{
+    "cart": "1",
+    "message": "Delete cart success"
+}
+}
+```
+
+Response Fail:
+
+- status: 400
+- body:
+
+```json
+{
+   "cart": "0",
+    "message": "Delete cart failed"
+}
+```
