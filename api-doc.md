@@ -38,7 +38,7 @@ Success Response:
 }
 ```
 
-Error Response:
+Fail Response:
 
 - status: 401
 - body:
@@ -92,7 +92,7 @@ Response:
 }
 ```
 
-Response:
+Fail Response:
 
 - status: 401
 - body:
@@ -134,6 +134,17 @@ Response:
 }
 ```
 
+Fail Response:
+
+- status: 404
+- body:
+
+```json
+{
+   "message": "Product not Found"
+}
+```
+
 ### GET /products/:id
 
 description: 
@@ -163,6 +174,17 @@ Response:
         "updatedAt": "date",
         "createdAt": "date"
         },
+}
+```
+
+Fail Response:
+
+- status: 404
+- body:
+
+```json
+{
+   "message": "Product not Found"
 }
 ```
 
@@ -210,6 +232,17 @@ Response:
 }
 ```
 
+Fail Response:
+
+- status: 404
+- body:
+
+```json
+{
+   "message": "Product not Found"
+}
+```
+
 
 ### DELETE /products/:id
 
@@ -233,129 +266,17 @@ Response:
 }
 ```
 
-### POST /banners
+Fail Response:
 
-description: 
-  add new banner
-
-Request:
-
-- headers: access_token (string)
-
-- data:
-
-```json
-{
-    "title": "string",
-    "category": "string",
-    "image": "string",
-    "status": "string",
-}
-```
-
-Response:
-
-- status: 200
+- status: 404
 - body:
 
 ```json
 {
-  "banner":  {
-        "id": "integer",
-        "title": "string",
-        "category": "string",
-        "image": "string",
-        "status": "string",
-        "updatedAt": "date",
-        "createdAt": "date"
-    },
-    "message": "New banner added"
+   "message": "Product not Found"
 }
 ```
 
-### GET /banners
-
-description: 
-  get all banners from database
-
-Request:
-
-- headers: access_token (string)
-
-Response:
-
-- status: 200
-- body:
-
-```json
-{
-    "banner": [
-        {
-        "id": "integer",
-        "title": "string",
-        "category": "string",
-        "image": "string",
-        "status": "string",
-        "updatedAt": "date",
-        "createdAt": "date"
-        },
-    ]
-}
-```
-
-### GET /banners/:id
-
-description: 
-  get banner by id from database
-
-Request:
-
-- headers: access_token (string)
-- params: 
-  - id: "integer" required
-
-Response:
-
-- status: 200
-- body:
-
-```json
-{
-    "banner":
-        {
-        "id": "integer",
-        "title": "string",
-        "category": "string",
-        "image": "string",
-        "status": "string",
-        "updatedAt": "date",
-        "createdAt": "date"
-        },
-}
-```
-
-
-### DELETE /banners/:id
-
-description: 
-  delete banner by id
-
-Request:
-
-- headers: access_token (string)
-- params: 
-  - id: "integer" required
-
-Response:
-
-- status: 200
-- body:
-
-```json
-{
-  "message": "Banner has been deleted"
-}
-```
 
 ### POST /carts/:ProductId
 
@@ -391,7 +312,7 @@ Response:
 }
 ```
 
-Response Fail:
+Fail Response:
 
 - status: 400
 - body:
@@ -437,7 +358,7 @@ Response:
 }
 ```
 
-Response Fail:
+Fail Response:
 
 - status: 401
 - body:
@@ -479,7 +400,7 @@ Response:
 }
 ```
 
-Response Fail:
+Fail Response:
 
 - status: 400
 - body:
@@ -515,7 +436,7 @@ Response:
 }
 ```
 
-Response Fail:
+Fail Response:
 
 - status: 400
 - body:

@@ -10,7 +10,5 @@ router.get('/:id', authorizeAdmin, ProductController.getProduct)
 router.put('/:id', authorizeAdmin, ProductController.putProduct)
 router.delete('/:id', authorizeAdmin, ProductController.deleteProduct)
 
-router.post('/carts/:ProductId', authorizeAdmin, ProductController.addToCart)
-
 
 module.exports = router
