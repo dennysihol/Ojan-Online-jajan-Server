@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Kue Cucur",
+        "category": "Wet Cake",
+        "stock": 20,
+        "price": 1000,
+        "image": "https://img-global.cpcdn.com/recipes/706b643e0d3f7c9a/400x400cq70/photo.jpg"
+    },
+    {
+        "name": "Kue Kastengel",
+        "category": "Dry Cake",
+        "stock": 40,
+        "price": 25000,
+        "image": "https://cdn.idntimes.com/content-images/post/20200508/95786132-125968559069871-5205599044766140195-n-c59aaa47a62ab01986cf768748d67037.jpg"
+    },
+    {
+        "name": "Snack RasaLokal",
+        "category": "Snack",
+        "stock": 20,
+        "price": 20000,
+        "image": "https://media.karousell.com/media/photos/products/2017/12/13/kripik_singkong_rasa_lokal_indonesia_1513144312_7abe9c5e.jpg"
+    },
+    {
+        "name": "Kue Pukis",
+        "category": "Wet Cake",
+        "stock": 50,
+        "price": 10000,
+        "image": "https://blog.tokowahab.com/wp-content/uploads/2019/11/Resep-Kue-Pukis-Bangka.jpg"
+    }
+]
